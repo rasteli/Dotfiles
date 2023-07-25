@@ -1,0 +1,24 @@
+#!/bin/bash
+#  __  __ _____ _   _ _   _         _    _        _    ____ ____  ___ _____ _______   __  _____ _   _ _____ __  __ _____
+# |  \/  | ____| \ | | | | |       / \  | |      / \  / ___|  _ \|_ _|_   _|_   _\ \ / / |_   _| | | | ____|  \/  | ____|
+# | |\/| |  _| |  \| | | | |_____ / _ \ | |     / _ \| |   | |_) || |  | |   | |  \ V /____| | | |_| |  _| | |\/| |  _|
+# | |  | | |___| |\  | |_| |_____/ ___ \| |___ / ___ \ |___|  _ < | |  | |   | |   | |_____| | |  _  | |___| |  | | |___
+# |_|  |_|_____|_| \_|\___/     /_/   \_\_____/_/   \_\____|_| \_\___| |_|   |_|   |_|     |_| |_| |_|_____|_|  |_|_____|
+#
+# Script for setting a theme for alacritty.
+
+# Select which launcher to open.
+source "$HOME/.local/bin/launcher"
+
+# Path to alacritty config.
+alacrittyConfig="$HOME/.config/alacritty/alacritty.yml"
+# Grabs only the names of all the themes in the schemes section.
+themes=$(bat $alacrittyConfig | grep '&' | awk -F ':' '{print $1}')
+
+# Lists all the available themes in launcher.
+selected=$(printf '%s\n' "${themes[@]}" | sed 's/\s//g' | sort | $LAUNCHER -l 15 -h 22 -p 'Set alacritty theme')
+theme="*${selected}"  # Had to add this line because I couldn't manage to work with the '*' directly in the sed command.
+
+[ -z "$selected" ] && exit 1  # If no theme is selected, quits the program.
+sed -i "/colors:/ccolors: $theme" $alacrittyConfig  # Sets the theme overwriting the one in the config.
+

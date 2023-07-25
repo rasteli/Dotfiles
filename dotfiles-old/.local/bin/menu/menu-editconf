@@ -1,0 +1,78 @@
+#!/bin/bash
+#  __  __ _____ _   _ _   _       _____ ____ ___ _____ ____ ___  _   _ _____
+# |  \/  | ____| \ | | | | |     | ____|  _ \_ _|_   _/ ___/ _ \| \ | |  ___|
+# | |\/| |  _| |  \| | | | |_____|  _| | | | | |  | || |  | | | |  \| | |_
+# | |  | | |___| |\  | |_| |_____| |___| |_| | |  | || |__| |_| | |\  |  _|
+# |_|  |_|_____|_| \_|\___/      |_____|____/___| |_| \____\___/|_| \_|_|
+#
+# Script for opening my most edited config files.
+
+# Select which launcher to open.
+source "$HOME/.local/bin/launcher"
+
+#EDITOR="emacsclient -c -a 'emacs'"
+EDITOR="alacritty -e nvim"
+
+configsPath="$HOME/.config"
+nvimPath="$HOME/.config/nvim"
+
+# Each element stands for Directory File Type.
+configs=(
+  "vim"
+  "bspwm bspwmrc"
+  "dunst dunstrc"
+  "sxhkd sxhkdrc"
+  "qtile config py"
+  "fish config fish"
+  "picom picom conf"
+  "rofi config rasi"
+  "xmonad xmonad hs"
+  "ranger rifle conf"
+  "polybar config ini"
+  "micro settings json"
+  "neofetch config conf"
+  "alacritty alacritty yml"
+  "xmobar xmobar_dracula config"
+  "xmenu xmenu sh"
+)
+
+choice=$(printf '%s\n' "${configs[@]}" | awk '{print $1}' | sort | $LAUNCHER -l 15 -h 22 -p 'Configs')
+
+[ -z "$choice" ] && exit 1
+
+open_file() {
+  file="$1"
+  $EDITOR "$file"
+}
+
+if [ "$choice" == "vim" ]; then
+  # I have my vim configuration split into
+  # multiple files.
+  vim_options=$(ls "$nvimPath/plugins")
+  # Lists all of those files in dmenu (or whatever launcher it might be)
+  # plus the init.vim file,
+  # which is inside the 'nvimPath' directory, and is where all the vim
+  # config files are being sourced.
+  vim_choice=$(printf '%s\ninit.vim' "${vim_options[@]}" | sort | $LAUNCHER -l 15 -h 22 -p 'Vim config')
+
+  [ -z "$vim_choice" ] && exit 1
+
+  if [ "$vim_choice" == "init.vim" ]; then
+    open_file "$nvimPath/init.vim"
+  else
+    open_file "$nvimPath/plugins/$vim_choice"
+  fi
+else
+  # Trims the spaces.
+  config=$(printf '%s\n' "${configs[@]}" | grep -E "(^| )$choice( |$)")
+
+  fileName=$(echo $config | awk '{print $2}')
+  fileType=$(echo $config | awk '{print $3}')
+
+  # Some files may have no extension, so here,
+  # I'm checking if that's the case, the variable
+  # ext is blank. Ohterwise, it's the file type.
+  [ -n "$fileType" ] && ext=".$fileType" || ext=""
+
+  cd $configsPath; open_file "$choice/$fileName$ext"
+fi

@@ -1,0 +1,11 @@
+$ ghc --make xmonad.hs -i -ilib -fforce-recomp -main-is main -dynamic -v0 -outputdir /home/rasteli/.xmonad/build-x86_64-linux -o /home/rasteli/.xmonad/xmonad-x86_64-linux
+
+xmonad.hs:302:38: error:
+    Ambiguous occurrence ‘magnify’
+    It could refer to
+       either ‘XMonad.Layout.Magnifier.magnify’,
+              imported from ‘XMonad.Layout.Magnifier’ at xmonad.hs:48:1-30
+           or ‘Main.magnify’, defined at xmonad.hs:218:1
+    |
+302 |                                  ||| magnify
+    |                                      ^^^^^^^

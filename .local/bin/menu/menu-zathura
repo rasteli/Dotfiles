@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#  __  __ _____ _   _ _   _      _____   _  _____ _   _ _   _ ____      _
+# |  \/  | ____| \ | | | | |    |__  /  / \|_   _| | | | | | |  _ \    / \
+# | |\/| |  _| |  \| | | | |_____ / /  / _ \ | | | |_| | | | | |_) |  / _ \
+# | |  | | |___| |\  | |_| |_____/ /_ / ___ \| | |  _  | |_| |  _ <  / ___ \
+# |_|  |_|_____|_| \_|\___/     /____/_/   \_\_| |_| |_|\___/|_| \_\/_/   \_\
+#
+# Script for opening documents in zathura.
+
+# Select which launcher to open.
+source "$HOME/.local/bin/launcher"
+
+# Listing recursively Documents directory and returing only files.
+documents=$(ls -Rp "$HOME/Documents" | grep -v '/' | awk 'NF>0 {print}')
+selected=$(printf '%s\n' "${documents[@]}" | $LAUNCHER -l 15 -h 22 -p 'Select document')
+
+[ -z "$selected" ] && exit 1
+
+# Determining the file type by its extension.
+file_type=$(echo "$selected" | awk -F '.' '{print $2}')
+
+if [ -n "$file_type" ]; then
+  zathura "$HOME/Documents/$selected"
+else
+  echo "Invalid file type." && exit 1
+fi

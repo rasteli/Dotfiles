@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+source "$HOME/.cache/wal/colors.sh"
+
+# Dmenu color scheme location.
+wal_dmenu="$HOME/.cache/wal/colors-wal-dmenu.h"
+
+# Since I have patched dmenu for morecolor support,
+# I had to add [SchemeMid], [SchemeSelHighlight] and [SchemeNormHighlight]
+# to the pywal dmenu color scheme, because pywal wouldn't.
+cd "/opt/glr-dmenu-git"
+
+rm -f config.h
+
+$(sed -i "s/\(\}\;\)/\t[SchemeMid] = { \"#eeeeee\", \"$color8\" },\
+  \n\t[SchemeSelHighlight] = { \"#f1fa8c\", \"$color1\" },\
+  \n\t[SchemeNormHighlight] = { \"#f1fa8c\", \"$color8\" }\n};/" "$wal_dmenu")
+
+make install

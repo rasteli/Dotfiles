@@ -1,0 +1,69 @@
+#!/bin/bash
+#  __  __ _____ _   _ _   _     _____ _   _ _____ __  __ _____
+# |  \/  | ____| \ | | | | |   |_   _| | | | ____|  \/  | ____|
+# | |\/| |  _| |  \| | | | |_____| | | |_| |  _| | |\/| |  _|
+# | |  | | |___| |\  | |_| |_____| | |  _  | |___| |  | | |___
+# |_|  |_|_____|_| \_|\___/      |_| |_| |_|_____|_|  |_|_____|
+#
+# Script for setting a theme system wide based on wallpaper using pywal.
+
+# Select which launcher to open.
+source "$HOME/.local/bin/launcher"
+
+# Terminal emulator.
+terminal="alacritty"
+# Path to wallpapers.
+wallpapers="/usr/share/backgrounds"
+# Current theme.
+current_theme=$(cat "$HOME/.cache/wal/wal" | awk -F '/' '{print $NF}')
+
+# The theme options are hardcored,
+# because I didn't really care for most
+# of the color schemes generated. I'm gonna
+# list here the ones that I like the most.
+declare -A options
+options["0050.jpg"]="0050-Lake:Blue"
+options["0051.jpg"]="0051-Mountains:Pinkish"
+options["0056.jpg"]="0056-Couple:Yellow"
+options["0059.jpg"]="0059-Road:Grayish"
+options["0065.jpg"]="0065-Lake:Purple"
+options["0075.jpg"]="0075-Sea:Light-Blue"
+options["0085.jpg"]="0085-Light-bulbs:Brown"
+options["0090.jpg"]="0090-Stone-arch:Light-Blue"
+options["0103.jpg"]="0103-Colorgrid:Yellow"
+options["0107.jpg"]="0107-Snowy-mountain:Magenta"
+options["0140.jpg"]="0140-Snowy-island:Pinkish"
+options["0152.jpg"]="0152-Desks:Brown"
+options["0167.jpg"]="0167-Snowier-mountains:White"
+options["0177.jpg"]="0177-Flower-field:Purple"
+options["0184.jpg"]="0184-Iceberg:White"
+options["0194.jpg"]="0194-Snowy-mountain:Pinkish"
+options["0217.jpg"]="0217-Mountains-and-river:Pinkish"
+options["0219.jpg"]="0219-Storm:Purple"
+options["0222.jpg"]="0222-Church:Blue"
+options["0229.jpg"]="0229-Cliff:Light-Blue"
+options["0234.jpg"]="0234-Grass:Brown"
+options["0239.jpg"]="0239-Cyberpunk:Dark-Green"
+options["0248.jpg"]="0248-Fence:Dark-Orange"
+options["0258.jpg"]="0258-Sun-by-the-wheat:Purple"
+options["spiderman.png"]="SpiderMan:Darkish"
+
+# Prefixes the current theme with a '+'
+for entry in "${!options[@]}"; do
+  [ "$entry" == "$current_theme" ] && prefix="+" || prefix=""
+
+  themes+=("$prefix ${options["$entry"]}")
+done
+
+set_wallpaper() {
+  wallpaper="$1"
+  wal -i "$wallpaper"
+  nitrogen --set-scaled "$wallpaper" --save
+}
+
+choice=$(printf '%s\n' "${themes[@]}" | sort | $LAUNCHER -l 15 -h 22 -p 'System theme' | awk '{print $NF}' | awk -F '-' '{print $1}')
+echo $choice
+
+if [ -n "$choice" ]; then
+  set_wallpaper "$wallpapers/$choice.jpg"
+fi

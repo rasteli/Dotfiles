@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=openc
+Icon=utilities-terminal
+Terminal=false
+Exec=OpenApps --openc
+Categories=ConsoleOnly;System

@@ -1,0 +1,24 @@
+#!/bin/bash
+#  __  __ _____ _   _ _   _       ____  _
+# |  \/  | ____| \ | | | | |     |  _ \| |
+# | |\/| |  _| |  \| | | | |_____| | | | |
+# | |  | | |___| |\  | |_| |_____| |_| | |___
+# |_|  |_|_____|_| \_|\___/      |____/|_____|
+#
+# Script for downloading commonly used isos.
+
+# Select which launcher to open.
+source "$HOME/.local/bin/launcher"
+
+TERMINAL=alacritty
+declare -A options
+
+options["Arch Linux iso"]="https://archlinux-br.com.br/archlinux/iso/2021.12.01/archlinux-2021.12.01-x86_64.iso"
+
+choice=$(printf '%s\n' "${!options[@]}" | sort | $LAUNCHER -h 28 -p "Download")
+
+if [ ! -z "$choice" -a "$choice" != " " ]; then
+  url="${options["$choice"]}"
+  cd $HOME/Downloads; $TERMINAL -e wget -c $url
+fi
+

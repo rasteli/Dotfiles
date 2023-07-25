@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+bspc wm -r
+
+if [[ $(ps --user $USER -F | grep eww | wc -l) -gt 1 ]]; then
+  sleep 3
+  xdo below -t $(xdo id -n root) $(xdo id -a "Eww - bar")
+fi

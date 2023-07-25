@@ -1,0 +1,7 @@
+{
+  "Alt-/": "lua:comment.comment",
+  "Alt-H": "command-edit:hsplit ",
+  "Alt-V": "command-edit:vsplit ",
+  "Alt-z": "command-edit:set softwrap ",
+  "CtrlUnderscore": "lua:comment.comment"
+}

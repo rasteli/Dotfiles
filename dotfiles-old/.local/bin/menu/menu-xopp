@@ -1,0 +1,30 @@
+#!/bin/sh
+#  __  __ _____ _   _ _   _     __  _____  ____  ____
+# |  \/  | ____| \ | | | | |    \ \/ / _ \|  _ \|  _ \
+# | |\/| |  _| |  \| | | | |_____\  / | | | |_) | |_) |
+# | |  | | |___| |\  | |_| |_____/  \ |_| |  __/|  __/
+# |_|  |_|_____|_| \_|\___/     /_/\_\___/|_|   |_|
+#
+
+source "$HOME/.local/bin/launcher"
+
+notes_dir="$HOME/xournalpp/notes"
+notes=$(cd "$notes_dir"; ls | awk -F '.' '{print $1}')
+
+notes+=("-----------")
+notes+=("New+")
+
+sel=$(printf '%s\n' "${notes[@]}" | $LAUNCHER -l 15 -h 22 -p "Select a note:")
+
+[[ -z "$sel" || "$sel" == "-----------" ]] && exit 1
+
+if [[ "$sel" == "New+" ]]; then
+  name=$(echo | $LAUNCHER -l 15 -h 22 -p "Name of note:")
+
+  [[ -z "$name" || -f "$notes_dir/$name" ]] && notify-send -u critical "Menu-Xopp" "Name was invalid or file already exists" && exit 1
+
+  xournalpp "$notes_dir/$name.xopp"
+  exit 0
+fi
+
+xournalpp "$notes_dir/$sel.xopp"

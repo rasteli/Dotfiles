@@ -1,0 +1,6 @@
+#!/bin/bash
+
+sxhkd_keys=~/.config/sxhkd/sxhkdrc
+
+cat "$sxhkd_keys" | grep -v -E '^# '\
+  | yad --text-info --geometry=1280x800 --fore=#f8f8f8

@@ -1,0 +1,35 @@
+global !p
+def math():
+  return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+endglobal
+
+snippet qed
+\qed{$1}$0
+endsnippet
+
+# A command I personally use for differentials
+snippet "([^a-zA-Z0-9])df" "\diff" rA
+`!p snip.rv = match.group(1)`\diff
+endsnippet
+
+snippet "([^a-zA-Z0-9])dv" "derivative" rA
+`!p snip.rv = match.group(1)`\dv{$1}
+endsnippet
+
+snippet "([^a-zA-Z0-9])pdv" "partial derivative" rA
+`!p snip.rv = match.group(1)`\pdv{$1}
+endsnippet
+
+context "math()"
+snippet ff "\frac{}{}" iA
+\frac{$1}{$2}$0
+endsnippet
+
+context "math()"
+snippet int "\int_{a}^{b}" iA
+\int_{$1}^{$2}$0
+endsnippet
+
+snippet "(^|[^a-zA-Z0-9])mm" "Inline LaTeX math" rA
+`!p snip.rv = match.group(1)`\$${1:${VISUAL:}}\$$0
+endsnippet

@@ -1,0 +1,41 @@
+#!/bin/bash
+#  __  __ _____ _   _ _   _       ____ ___ _   _
+# |  \/  | ____| \ | | | | |     | __ )_ _| \ | |
+# | |\/| |  _| |  \| | | | |_____|  _ \| ||  \| |
+# | |  | | |___| |\  | |_| |_____| |_) | || |\  |
+# |_|  |_|_____|_| \_|\___/      |____/___|_| \_|
+#
+# Script for opening my bin files.
+
+# Select which launcher to open.
+source "$HOME/.local/bin/launcher"
+
+#EDITOR="emacsclient -c -a 'emacs'"
+EDITOR="alacritty -e nvim"
+separator="----------"
+binFolder="$HOME/.local/bin"
+
+# Bin folder has a couple of directories in it,
+# but I don't want them to show in ls.
+# To achieve that, the -p flag appends a '/'
+# to a directory name and then the 'grep -v /'
+# removes all the directories from the ls output.
+bins=$(cd $HOME && ls -p $binFolder | grep -v '/';\
+  echo $separator; ls "$binFolder/menu")
+
+option=$(printf '%s\n' "${bins[@]}" | $LAUNCHER -l 15 -h 22 -p "Bins")
+
+if [[ -n "$option" && "$option" != "$separator" ]]; then
+  # All of my menu scripts start with 'menu-'
+  # and are in a subdirectory inside bin folder.
+  # So here I'm checking if the option has 'menu'
+  # in the name. If so, it's necessary to change to
+  # that subdirecotry and then execute the script.
+  isMenu=$(echo "$option" | awk -F '-' '{print $1}')
+
+  if [ "$isMenu" == "menu" ]; then
+    $EDITOR "$binFolder/menu/$option"
+  else
+    $EDITOR "$binFolder/$option"
+  fi
+fi

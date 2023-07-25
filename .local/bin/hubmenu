@@ -1,0 +1,23 @@
+#!/bin/bash
+#  __  __ _____ _   _ _   _       _   _ _   _ ____
+# |  \/  | ____| \ | | | | |     | | | | | | | __ )
+# | |\/| |  _| |  \| | | | |_____| |_| | | | |  _ \
+# | |  | | |___| |\  | |_| |_____|  _  | |_| | |_) |
+# |_|  |_|_____|_| \_|\___/      |_| |_|\___/|____/
+#
+# Hub for my menu scripts.
+
+# Select which launcher to open.
+source "$HOME/.local/bin/launcher"
+
+# Path to my menu scripts.
+menu_scripts_path="$HOME/.local/bin/menu"
+# Remove directories from ls output.
+menu_scripts=$(ls -p "$menu_scripts_path" | grep -v '/')
+
+selection=$(printf '%s\n' "${menu_scripts[@]}" \
+            | $LAUNCHER -l 15 -h 22 -p 'Select script')
+
+if [ -n "$selection" ]; then
+  exec $menu_scripts_path/$selection -l dmenu
+fi

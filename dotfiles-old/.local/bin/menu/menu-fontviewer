@@ -1,0 +1,20 @@
+#!/bin/bash
+#  __  __ _____ _   _ _   _       _____ ___  _   _ _______     _____ _______        _______ ____
+# |  \/  | ____| \ | | | | |     |  ___/ _ \| \ | |_   _\ \   / /_ _| ____\ \      / / ____|  _ \
+# | |\/| |  _| |  \| | | | |_____| |_ | | | |  \| | | |  \ \ / / | ||  _|  \ \ /\ / /|  _| | |_) |
+# | |  | | |___| |\  | |_| |_____|  _|| |_| | |\  | | |   \ V /  | || |___  \ V  V / | |___|  _ <
+# |_|  |_|_____|_| \_|\___/      |_|   \___/|_| \_| |_|    \_/  |___|_____|  \_/\_/  |_____|_| \_\
+#
+# Script for previewing fonts installed on the system.
+
+# Select which launcher to open.
+source "$HOME/.local/bin/launcher"
+
+# Prompts only the font name ignoring its full path.
+font=$(fc-list | awk -F ':' '{print $1}' | grep -v 'dpi' | awk -F '/' '{print $NF}' | $LAUNCHER -l 15 -h 22 -p 'Font viewer')
+
+if [ ! -z "$font" -a "$font" != " " ]; then
+  fontPath=$(fc-list | awk -F ':' '{print $1}' | grep -v 'dpi' | awk -F '/' '{print}' | grep "$font")
+  display $fontPath   # Displays font using ImageMagick.
+fi
+

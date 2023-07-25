@@ -1,0 +1,17 @@
+#!/bin/bash
+
+take_screenshot() {
+  if [ -n "$1" ]; then
+    [[ "$1" -ne "-s" ]] && exit 1;
+
+    scrot -s -d 1 "%d-%m-%Y-%H:%M_${RANDOM}_scrot.png" -e 'mv $f ~/Pictures'
+  else
+    scrot -M 0 -d 1 "%d-%m-%Y-%H:%M_${RANDOM}_scrot.png" -e 'mv $f ~/Pictures'
+  fi
+}
+
+take_screenshot "$1"
+
+[[ "$?" -ne "0" ]] && notify-send -u critical "Couldn't take screenshot!" && exit 1
+
+notify-send "Screenshot saved to /home/rasteli/Pictures"

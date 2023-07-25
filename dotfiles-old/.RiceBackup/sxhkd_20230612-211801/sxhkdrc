@@ -1,0 +1,191 @@
+## WM INDEPENDENT HOTKEYS
+
+## make sxhkd reload its configuration files:
+super + Escape
+  pkill -USR1 -x sxhkd
+
+## list keybindings
+super + shift + slash
+  ~/.config/sxhkd/keybindings
+
+#===============================######
+########### BSPWM HOTKEYS ############
+#######==============================#
+#
+## quit/restart bspwm
+super + shift + {q,r}
+  bspc {quit,wm -r}
+
+## close and kill
+super + shift + c
+  bspc node -c
+
+## terminal emulator
+super + Return
+  alacritty
+
+## program launcher
+super + shift + Return
+	rofi -show drun
+  #rofi -modes drun,run,window -show drun -show-icons -sidebar-mode -display-drun 'RUN' -display-run 'Run Binaries' -display-window 'Select window'
+  #dmenu_run -h 20 -g 5 -l 20 -p 'RUN:'
+
+## launch xmenu with middle click on empty desktop
+~button2
+	bspc query -D -d 'focused.!occupied' \
+	    && ~/.config/xmenu/xmenu.sh
+
+## alternate between the tiled and monocle layout
+super + m
+  bspc desktop -l next
+
+## send the newest marked node to the newest preselected node
+super + y
+  bspc node newest.marked.local -n newest.!automatic.local
+
+## swap the current node and the biggest window
+super + g
+  bspc node -s biggest.window
+
+
+
+###====== STATE/FLAGS
+## set the window state
+super + {t,shift + t,s,@space}
+  bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+## set the node flags
+super + ctrl + {m,x,y,z}
+  bspc node -g {marked,locked,sticky,private}
+
+
+
+###====== FOCUS/SWAP
+## focus the node in the given direction
+super + {_,alt + }{h,j,k,l}
+  bspc node -{f,s} {west,south,north,east}
+
+## focus the next/previous window in the current desktop
+super + {_,shift + }w
+  bspc node -f {next,prev}.local.!hidden.window
+
+## focus the next/previous desktop in the current monitor
+super + bracket{left,right}
+  bspc desktop -f {prev,next}.local
+
+## focus the last node/desktop
+super + {grave,Tab}
+  bspc {node,desktop} -f last
+
+## focus the older or newer node in the focus history
+super + {o,i}
+  bspc wm -h off; \
+  bspc node {older,newer} -f; \
+  bspc wm -h on
+
+## focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+  bspc {desktop -f,node -d} focused:'^{1-9,10}'
+
+
+
+###====== PRESELECT
+## preselect the direction
+super + ctrl + {h,j,k,l}
+  bspc node -p {west,south,north,east}
+
+## preselect the ratio
+super + ctrl + {1-9}
+  bspc node -o 0.{1-9}
+
+## cancel the preselection for the focused node
+super + ctrl + space
+  bspc node -p cancel
+
+## cancel the preselection for the focused desktop
+super + ctrl + shift + space
+  bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+
+
+###====== MOVE/RESIZE
+## expand a window by moving one of its side outward
+super + shift + {h,j,k,l}
+  bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+## contract a window by moving one of its side inward
+super + alt + shift + {h,j,k,l}
+  bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+## move a floating window
+super + {Left,Down,Up,Right}
+  bspc node -v {-20 0,0 20,0 -20,20 0}
+
+
+
+###====== USEFUL PROGRAMS (alt)
+super + b
+  brave
+super + alt + f
+  alacritty -e ranger
+super + alt + shift + f
+	thunar
+super + alt + t
+  alacritty -e htop
+super + alt + n
+  alacritty -e sudo ncdu /
+super + alt + Return
+	code
+  #emacsclient -c -a 'emacs' #-e '(+workspace/kill-session)'
+
+
+
+###====== PULSE AUDIO
+super + alt + a
+  alacritty -e pulsemixer
+super + alt + m
+  pulsemixer --toggle-mute
+super + alt + p
+  playerctl --all-players play-pause
+
+
+
+###====== SCREENSHOT
+Print
+  ~/.local/bin/screenshot
+super + Print
+  ~/.local/bin/screenshot -s
+
+
+
+###====== MENU SCRIPTS (super + p)
+## power menu
+super + End
+  ~/.local/bin/menu/menu-power-dmenu -l dmenu
+
+## play ambient sounds - edit bin files - edit config files
+super + p; {a,b,c}
+  {~/.local/bin/menu/menu-ambience -l dmenu,~/.local/bin/menu/menu-bin -l dmenu,~/.local/bin/menu/menu-editconf -l dmenu}
+
+## download with wget - preview installed fonts - hub for menu scripts
+super + p; {d,f,g,h}
+   {~/.local/bin/menu/menu-download -l dmenu,~/.local/bin/menu/menu-fontviewer -l dmenu,~/.local/bin/menu/menu-git-aliases -l dmenu,~/.local/bin/hubmenu -l dmenu}
+
+## miscellaneous actions - search and kill process - mount/unmount mtp connected devices
+super + p; {i,k,m}
+   {~/.local/bin/menu/menu-misc -l dmenu,~/.local/bin/menu/menu-kill -l dmenu,~/.local/bin/menu/menu-mtp -l dmenu}
+
+## open browser bookmarks
+super + p; {o}
+   {~/.local/bin/menu/menu-bookmarks -l dmenu}
+
+## passmenu - search various search engines - set alacritty theme
+super + p; {p,s,t}
+   {~/.local/bin/menu/menu-passmenu --type -l 15 -p '>',~/.local/bin/menu/menu-websearch -l dmenu,~/.local/bin/menu/menu-alacritty-theme -l dmenu}
+
+## start virtualbox vms - open documents in zathura - set default sink
+super + p; {v,z,shift+s}
+   {~/.local/bin/menu/menu-vm -l dmenu,~/.local/bin/menu/menu-zathura -l dmenu,~/.local/bin/menu/menu-switch-sinks -l dmenu}
+
+super + p; {shift+t,x}
+   {~/.local/bin/menu/menu-polybar-theme -l dmenu,~/.local/bin/menu/menu-tex -l dmenu}

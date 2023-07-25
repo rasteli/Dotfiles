@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+#  __  __ _____ _   _ _   _       ____   ___   ___  _  ____  __    _    ____  _  ______
+# |  \/  | ____| \ | | | | |     | __ ) / _ \ / _ \| |/ /  \/  |  / \  |  _ \| |/ / ___|
+# | |\/| |  _| |  \| | | | |_____|  _ \| | | | | | | ' /| |\/| | / _ \ | |_) | ' /\___ \
+# | |  | | |___| |\  | |_| |_____| |_) | |_| | |_| | . \| |  | |/ ___ \|  _ <| . \ ___) |
+# |_|  |_|_____|_| \_|\___/      |____/ \___/ \___/|_|\_\_|  |_/_/   \_\_| \_\_|\_\____/
+#
+# Script for listing and opening my browser bookmarks.
+
+browser="brave"
+
+# Selecting which launcher to open.
+source "$HOME/.local/bin/launcher"
+
+# Brave bookmarks path.
+bookmark_html="$HOME/.config/BraveSoftware/Brave-Browser/bookmarks.html"
+
+# Grabbing the urls from the page.
+bookmarks=$(cat "$bookmark_html" | grep -oiP "href\s*=\s*[\"']([^\"']*)[\"']" \
+    | awk -F '=' '{print $2}' | sed 's/"//g')
+
+for exclusion in separator.mayastudios; do
+  bookmarks=$(printf '%s\n' "${bookmarks[@]}" | grep -v "$exclusion")
+done
+
+# Selecting which url to open.
+bm_selected=$(printf '%s\n' "${bookmarks[@]}" | $LAUNCHER -l 15 -h 24 -p 'Open bookmark')
+
+[ -z "$bm_selected" ] && exit 1
+
+"$browser" "$bm_selected"
+exit 0

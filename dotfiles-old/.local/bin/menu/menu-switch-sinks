@@ -1,0 +1,12 @@
+#!/bin/bash
+
+source "$HOME/.local/bin/launcher"
+
+sinks=$(pactl list sinks short | awk '{print $2}')
+option=$(printf '%s\n' "${sinks[@]}" | $LAUNCHER -l 15 -h 22 -p "Sinks")
+
+pactl set-default-sink "$option"
+
+pactl list sink-inputs | grep '#' | awk -F '#' '{print $2}' | while read -r line; do
+	pactl move-sink-input "$(echo $line | cut -f2 -d ' ')" "$option"
+done
