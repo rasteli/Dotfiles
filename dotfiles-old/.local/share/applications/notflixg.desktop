@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Notflixg
-Icon=~/.local/share/applications/notflixg.svg
-Terminal=false
-Exec=/home/rasteli/.local/bin/notflixg

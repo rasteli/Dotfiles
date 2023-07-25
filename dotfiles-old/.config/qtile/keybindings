@@ -1,8 +1,0 @@
-#!/bin/bash
-
-qtile_config="$HOME/.config/qtile/config.py"
-
-cat "$qtile_config" | awk '/KEYS_START/,/KEYS_END/'\
-  | grep -v '^###' | sed -e 's/^[ \t\)\,]*//'\
-  -e '/keys/d' -e '/^]/d' -e 's/^/ /'\
-  | yad --text-info --geometry=1280x800 --fore=#f8f8f8
