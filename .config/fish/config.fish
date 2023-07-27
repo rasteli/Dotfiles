@@ -114,6 +114,8 @@ alias rr="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/mas
 ### Network
 alias ckport="sudo ss -tulpn"
 alias serve="python -m http.server"
+alias docker_ip="docker inspect \
+  -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}'" # Get docker container ip address
 # ====== ALIASES END ====== #
 
 # Randomly selecting a color script.

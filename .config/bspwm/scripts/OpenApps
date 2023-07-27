@@ -14,8 +14,8 @@ case "$1" in
 		 -theme $HOME/.config/bspwm/rices/${RICETHEME}/launcher.rasi;;
 
   --scripts)
-    rofi -show emoji -kb-custom-1 Ctrl+c \
-		 -theme $HOME/.config/bspwm/rices/${RICETHEME}/scripts.rasi;;
+    rofi -show emoji -kb-custom-1 Ctrl+c;;
+		 # -theme $HOME/.config/bspwm/rices/${RICETHEME}/scripts.rasi;;
 
   --rice)
 	RiceSelector;;
