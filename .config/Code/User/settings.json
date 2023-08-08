@@ -54,7 +54,7 @@
   "prettier.arrowParens": "avoid",
   "prettier.trailingComma": "none",
   "prettier.bracketSpacing": true,
-  "prettier.singleQuote": true,
+  "prettier.singleQuote": false,
 
   "editor.tokenColorCustomizations": {
     "[Material Theme Palenight High Contrast]": {
