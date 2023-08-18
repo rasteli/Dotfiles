@@ -23,9 +23,13 @@ super + control + Return
 super + shift + Return
 	OpenApps --menu
 
-# Scripts Menu
-super + control + alt + Return
+# Emoji Menu
+alt + F3
 	OpenApps --scripts
+
+# Rofi Selector
+super + control + alt + Return
+  OpenApps --rofisel
 
 # Theme Selector
 alt + @space

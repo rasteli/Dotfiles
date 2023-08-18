@@ -29,7 +29,7 @@ set fish_color_autosuggestion '#6272a4'
 ### NPM GLOBAL PACKAGES LOCATION
 set NPM_PACKAGES "$HOME/.npm-packages"
 set PATH $PATH $NPM_PACKAGES/bin
-set MANPATH $NPM_PACKAGES/share/man $MANPATH
+# set MANPATH $MANPATH $NPM_PACKAGES/share/man
 
 ### KEY MODE (vi or default)
 function fish_user_key_bindings
@@ -106,6 +106,7 @@ alias bare='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 ### Misc
 alias cat="bat"
 alias vim="nvim"
+alias svim="sudo -E nvim"
 # alias ls="exa -al --group-directories-first"
 alias ls='lsd -A --group-directories-first'
 alias ll='lsd -lA --group-directories-first'

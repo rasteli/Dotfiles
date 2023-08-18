@@ -10,12 +10,17 @@
 
 case "$1" in
   --menu)
-    rofi -show drun \
-		 -theme $HOME/.config/bspwm/rices/${RICETHEME}/launcher.rasi;;
+    read -r TYPE < "$HOME/.config/rofi/.type"
+    $HOME/.config/rofi/launchers/$TYPE/launcher.sh;;
+    # rofi -show drun \
+		 # -theme $HOME/.config/bspwm/rices/${RICETHEME}/launcher.rasi;;
 
   --scripts)
     rofi -show emoji -kb-custom-1 Ctrl+c;;
 		 # -theme $HOME/.config/bspwm/rices/${RICETHEME}/scripts.rasi;;
+
+  --rofisel)
+    $HOME/.config/rofi/type-selector;;
 
   --rice)
 	RiceSelector;;
