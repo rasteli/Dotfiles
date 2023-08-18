@@ -213,7 +213,7 @@ super + Print
 ###====== MENU SCRIPTS (super + p)
 ## power menu
 super + End
-  ~/.local/bin/menu/menu-power-dmenu -l dmenu
+  ~/.config/rofi/powermenu/type-3/powermenu.sh
 
 ## play ambient sounds - edit bin files - edit config files
 super + p; {a,b,c}
