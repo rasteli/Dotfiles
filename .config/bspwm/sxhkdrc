@@ -28,7 +28,7 @@ alt + F3
 	OpenApps --scripts
 
 # Rofi Selector
-super + control + alt + Return
+super + alt + @space
   OpenApps --rofisel
 
 # Theme Selector
