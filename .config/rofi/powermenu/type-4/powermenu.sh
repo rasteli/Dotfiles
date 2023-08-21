@@ -38,7 +38,7 @@ rofi_cmd() {
 confirm_cmd() {
 	rofi -dmenu \
 		-p 'Confirmation' \
-		-mesg 'Are you Sure?' \
+		-mesg 'Are you sure?' \
 		-theme ${dir}/shared/confirm.rasi
 }
 

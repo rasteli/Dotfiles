@@ -8,12 +8,12 @@ for dir in "$rofi_dir"/launchers/*/; do
     options+=("$(basename "$dir")")
 done
 
-type=$(printf "%s\n" "${options[@]}" | $rofi_command)
+type=$(printf "%s\n" "${options[@]}" | $rofi_command -p types)
 
 [[ -n "$type" ]] || exit 1
 
 styles=$(ls $rofi_dir/launchers/$type | grep rasi | sort | sed 's/.rasi//')
-style=$(printf "%s\n" "${styles[@]}" | $rofi_command)
+style=$(printf "%s\n" "${styles[@]}" | $rofi_command -p styles)
 
 [[ -n "$style" ]] || exit 1
 
