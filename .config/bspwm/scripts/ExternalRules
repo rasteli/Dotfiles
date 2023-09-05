@@ -27,10 +27,10 @@ case "$class" in
 	    eval "$consequences"
 	    [ "$state" ] || echo "state=pseudo_tiled desktop=^4 follow=on rectangle=930x617+0+0"
 		;;
-	retroarch)
-	    eval "$consequences"
-	    [ "$state" ] || echo "state=pseudo_tiled desktop=^6 follow=on"
-	    ;;
+	# retroarch)
+	#     eval "$consequences"
+	#     [ "$state" ] || echo "state=pseudo_tiled desktop=^6 follow=on"
+	#     ;;
 	Pavucontrol)
 	    eval "$consequences"
 	    [ "$state" ] || echo "state=floating center=on"
