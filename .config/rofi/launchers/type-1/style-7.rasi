@@ -24,7 +24,7 @@ configuration {
 @import                          "shared/fonts.rasi"
 
 * {
-    border-colour:               var(selected);
+    border-colour:               var(active);
     handle-colour:               var(selected);
     background-colour:           var(background);
     foreground-colour:           var(foreground);
@@ -35,8 +35,8 @@ configuration {
     urgent-foreground:           var(background);
     active-background:           var(active);
     active-foreground:           var(background);
-    selected-normal-background:  var(selected);
-    selected-normal-foreground:  var(background);
+    selected-normal-background:  var(active);
+    selected-normal-foreground:  var(foreground);
     selected-urgent-background:  var(active);
     selected-urgent-foreground:  var(background);
     selected-active-background:  var(urgent);

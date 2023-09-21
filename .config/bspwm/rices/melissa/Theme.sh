@@ -8,8 +8,8 @@
 # Set bspwm configuration for Melissa
 set_bspwm_config() {
 		bspc config border_width 0
-		bspc config top_padding 42
-		bspc config bottom_padding 40
+		bspc config top_padding 35
+		bspc config bottom_padding 2
 		bspc config normal_border_color "#e5e9f0"
 		bspc config active_border_color "#e5e9f0"
 		bspc config focused_border_color "#4c566a"
@@ -64,16 +64,16 @@ set_picom_config() {
 			-e "s/normal = .*/normal =  { fade = true; shadow = true; }/g" \
 			-e "s/shadow-color = .*/shadow-color = \"#000000\"/g" \
 			-e "s/corner-radius = .*/corner-radius = 6/g" \
-			-e "s/\".*:class_g = 'Alacritty'\"/\"98:class_g = 'Alacritty'\"/g" \
-			-e "s/\".*:class_g = 'FloaTerm'\"/\"98:class_g = 'FloaTerm'\"/g"
+			-e "s/\".*:class_g = 'Alacritty'\"/\"100:class_g = 'Alacritty'\"/g" \
+			-e "s/\".*:class_g = 'FloaTerm'\"/\"100:class_g = 'FloaTerm'\"/g"
 }
 
 # Set dunst notification daemon config
 set_dunst_config() {
 		sed -i "$HOME"/.config/bspwm/dunstrc \
 		-e "s/transparency = .*/transparency = 4/g" \
-		-e "s/frame_color = .*/frame_color = \"#2e3440\"/g" \
-		-e "s/separator_color = .*/separator_color = \"#a3be8c\"/g" \
+		-e "s/frame_color = .*/frame_color = \"#81a1c1\"/g" \
+		-e "s/separator_color = .*/separator_color = \"#81a1c1\"/g" \
 		-e "s/font = .*/font = JetBrainsMono Nerd Font Medium 9/g" \
 		-e "s/foreground='.*'/foreground='#81a1c1'/g"
 

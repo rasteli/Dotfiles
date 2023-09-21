@@ -107,7 +107,7 @@ launch_bars() {
 		#eww -c ${rice_dir}/bar open bar-sec &
 		eww -c ${rice_dir}/dashboard daemon &
 		#polybar -q tray -c ${rice_dir}/bar/polybar_tray.ini &
-		polybar -q emi-bar -c $HOME/.config/bspwm/rices/emilia/zombie-config.ini &
+		polybar -q isa-bar -c $HOME/.config/bspwm/rices/isabel/sec-config.ini &
 }
 
 

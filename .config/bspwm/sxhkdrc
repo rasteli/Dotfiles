@@ -41,7 +41,8 @@ super + control + alt + {h,u}
 
 # Random wallpaper
 super + alt + w
-	feh -z --no-fehbg --bg-fill ~/.config/bspwm/rices/$RICETHEME/walls/
+	feh -z --no-fehbg --bg-fill ~/.local/share/backgrounds/
+	# feh -z --no-fehbg --bg-fill ~/.config/bspwm/rices/$RICETHEME/walls/
 
 # Scratchpad
 super + alt + o
@@ -213,7 +214,7 @@ super + Print
 ###====== MENU SCRIPTS (super + p)
 ## power menu
 super + End
-  ~/.config/rofi/powermenu/type-3/powermenu.sh
+  ~/.config/rofi/powermenu/type-2/powermenu.sh
 
 ## play ambient sounds - edit bin files - edit config files
 super + p; {a,b,c}
