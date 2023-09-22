@@ -11,7 +11,7 @@ theme="$type/$style"
 
 # Theme Elements
 prompt='Screenshot'
-mesg="DIR: `xdg-user-dir PICTURES`/Screenshots"
+mesg="DIR: $HOME/Pictures"
 
 if [[ "$theme" == *'type-1'* ]]; then
 	list_col='1'
@@ -37,14 +37,14 @@ if [[ "$layout" == 'NO' ]]; then
 	option_1=" Capture Desktop"
 	option_2=" Capture Area"
 	option_3=" Capture Window"
-	option_4=" Capture in 5s"
-	option_5=" Capture in 10s"
+	option_4="󰔝 Capture in 3s"
+	option_5="󰔜 Capture in 10s"
 else
 	option_1=""
 	option_2=""
 	option_3=""
-	option_4=""
-	option_5=""
+	option_4="󰔝"
+	option_5="󰔜"
 fi
 
 # Rofi CMD
@@ -67,7 +67,7 @@ run_rofi() {
 # Screenshot
 time=`date +%Y-%m-%d-%H-%M-%S`
 geometry=`xrandr | grep 'current' | head -n1 | cut -d',' -f2 | tr -d '[:blank:],current'`
-dir="`xdg-user-dir PICTURES`/Screenshots"
+dir="$HOME/Pictures"
 file="Screenshot_${time}_${geometry}.png"
 
 if [[ ! -d "$dir" ]]; then
@@ -78,7 +78,7 @@ fi
 notify_view() {
 	notify_cmd_shot='dunstify -u low --replace=699'
 	${notify_cmd_shot} "Copied to clipboard."
-	viewnior ${dir}/"$file"
+	# viewnior ${dir}/"$file"
 	if [[ -e "$dir/$file" ]]; then
 		${notify_cmd_shot} "Screenshot Saved."
 	else
@@ -106,7 +106,7 @@ shotnow () {
 }
 
 shot5 () {
-	countdown '5'
+	countdown '3'
 	sleep 1 && cd ${dir} && maim -u -f png | copy_shot
 	notify_view
 }

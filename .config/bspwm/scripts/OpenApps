@@ -20,7 +20,7 @@ case "$1" in
 		 # -theme $HOME/.config/bspwm/rices/${RICETHEME}/scripts.rasi;;
 
   --rofisel)
-    $HOME/.config/rofi/type-selector;;
+    $HOME/.config/rofi/scripts/type-selector;;
 
   --rice)
 	RiceSelector;;

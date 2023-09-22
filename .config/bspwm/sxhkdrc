@@ -202,12 +202,9 @@ super + alt + p
 
 
 ###====== SCREENSHOT
-## Entire screen screenshot
+## screenshot
 Print
-  ~/.local/bin/screenshot
-## Selection screenshot
-super + Print
-  ~/.local/bin/screenshot -s
+  ~/.config/rofi/applets/bin/screenshot.sh
 
 
 
@@ -228,7 +225,7 @@ super + p; {d,f,g,h}
 
 ## miscellaneous actions - search and kill process - mount/unmount mtp connected devices
 super + p; {i,k,m}
-   {~/.local/bin/menu/menu-misc -l dmenu,~/.local/bin/menu/menu-kill -l dmenu,~/.local/bin/menu/menu-mtp -l dmenu}
+   {~/.local/bin/menu/menu-misc -l dmenu,~/.config/rofi/scripts/kill.sh -l dmenu,~/.local/bin/menu/menu-mtp -l dmenu}
 
 ## open browser bookmarks
 super + p; {o}
