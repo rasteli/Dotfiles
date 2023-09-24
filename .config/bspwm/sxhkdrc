@@ -173,7 +173,7 @@ super + b
 super + alt + f
   alacritty -e ranger
 ## Open File Manager
-super + alt + shift + f
+super + shift + f
 	OpenApps --filemanager
 ## Open htop
 super + alt + t

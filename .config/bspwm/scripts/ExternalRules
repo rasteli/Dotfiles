@@ -35,6 +35,10 @@ case "$class" in
 	    eval "$consequences"
 	    [ "$state" ] || echo "state=floating center=on"
 	    ;;
+	conky)
+	    eval "$consequences"
+	    [ "$state" ] || echo "state=floating"
+	    ;;
 	Virt-manager)
 	    eval "$consequences"
 	    [ "$state" ] || echo "desktop=^5 follow=on center=on"

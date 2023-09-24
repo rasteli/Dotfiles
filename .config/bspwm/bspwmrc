@@ -100,3 +100,4 @@ nm-applet &
 setxkbmap br &
 xset s off -dpms &
 playerctld daemon &
+# conky &
