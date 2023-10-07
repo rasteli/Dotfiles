@@ -85,7 +85,7 @@ dunst -config "$HOME"/.config/bspwm/dunstrc &
 # Set random wallpapers for current rice
 # Or restore ones set with feh
 # Options: --restore | --random
-$HOME/.config/bspwm/scripts/Wallpaper --restore &
+$HOME/.config/bspwm/scripts/Wallpaper --random &
 
 # Reload sxhkd daemon
 sxhkd -c "$HOME"/.config/bspwm/sxhkdrc &

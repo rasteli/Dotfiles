@@ -15,7 +15,7 @@ set -U fish_user_paths $local_bin $rust_bin $menu_scripts $java $fish_user_paths
 set fish_greeting                                   # Supresses fish's greeting message.
 set EDITOR "nvim"                                   # Sets default editor to neovim.
 set FISH_CONFIG "$HOME/.config/fish"                # Path to fish's configuration files.
-set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"   # Sets bat as manpager (manual reader).
+set -x MANPAGER "less"
 set PGDATA "$HOME/.local/share/postgresql"          # Postgresql data directory.
 
 ### AUTOCOMPLETE AND HIGHLIGHT COLORS

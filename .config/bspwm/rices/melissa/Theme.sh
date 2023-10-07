@@ -99,10 +99,10 @@ _EOF_
 # Launch the bar
 launch_bars() {
 		polybar -q mel-bar -c ${rice_dir}/config.ini &
-		polybar -q mel2-bar -c ${rice_dir}/config.ini &
+		# polybar -q mel2-bar -c ${rice_dir}/config.ini &
 
 		polybar -q mel-bar -c ${rice_dir}/sec-config.ini &
-		polybar -q mel2-bar -c ${rice_dir}/sec-config.ini &
+		# polybar -q mel2-bar -c ${rice_dir}/sec-config.ini &
 }
 
 
