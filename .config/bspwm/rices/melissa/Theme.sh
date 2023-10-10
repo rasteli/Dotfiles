@@ -8,7 +8,7 @@
 # Set bspwm configuration for Melissa
 set_bspwm_config() {
 		bspc config border_width 0
-		bspc config top_padding 35
+		bspc config top_padding 32
 		bspc config bottom_padding 2
 		bspc config normal_border_color "#e5e9f0"
 		bspc config active_border_color "#e5e9f0"
