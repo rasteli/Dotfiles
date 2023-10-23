@@ -8,8 +8,7 @@ Music Player,spotify,/home/rasteli/.config/jgmenu/MenuIcons/music.png
 
 ^sep()
 Applications,^checkout(lx-apps),/home/rasteli/.config/jgmenu/MenuIcons/applications.png
-Dashboard,eww open-many --toggle background-closer main,/home/rasteli/.config/jgmenu/MenuIcons/dashboard.png
-System Menu,~/.config/eww/System-Menu/launch,/home/rasteli/.config/jgmenu/MenuIcons/system-menu.png
+Fetch,OpenApps --fetch,/home/rasteli/.config/jgmenu/MenuIcons/dashboard.png
 ^sep()
 Exit,eww open-many --toggle background-closer powermenu,/home/rasteli/.config/jgmenu/MenuIcons/exit.png
 BSPWM,^checkout(bspwm),/home/rasteli/.config/jgmenu/MenuIcons/bspwm.png

@@ -15,6 +15,10 @@ case "$class" in
 		eval "$consequences"
 		[ "$state" ] || echo "state=floating center=on"
 		;;
+  Calendar)
+		eval "$consequences"
+		[ "$state" ] || echo "state=floating"
+		;;
 	Updating)
 		eval "$consequences"
 		[ "$state" ] || echo "state=floating sticky=on center=on"

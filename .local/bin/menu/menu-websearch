@@ -30,6 +30,7 @@ search_options["Arch Wiki"]="https://wiki.archlinux.org/title/"
 search_options["Arch Packages"]="https://archlinux.org/packages/?q="
 
 # Other stuff
+search_options[Dicio]="https://www.dicio.com.br/"
 search_options["NPM Packages"]="https://www.npmjs.com/search?q="
 search_options[YouTube]="https://www.youtube.com/results?search_query="
 search_options["Cambridge Dictionary"]="https://dictionary.cambridge.org/us/dictionary/english/"
