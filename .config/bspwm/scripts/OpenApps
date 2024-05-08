@@ -16,7 +16,7 @@ case "$1" in
 		 # -theme $HOME/.config/bspwm/rices/${RICETHEME}/launcher.rasi;;
 
   --scripts)
-    rofi -show emoji -kb-custom-1 Ctrl+c;;
+    rofi -show emoji -kb-custom-1 Ctrl+Shift+c;;
 		 # -theme $HOME/.config/bspwm/rices/${RICETHEME}/scripts.rasi;;
 
   --rofisel)
@@ -95,7 +95,7 @@ case "$1" in
 	thunar;;
 
   --browser)
-	brave;;
+	brave-browser-nightly;;
 
   --editor)
 	code;;

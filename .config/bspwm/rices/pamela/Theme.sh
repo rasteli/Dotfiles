@@ -21,40 +21,39 @@ set_bspwm_config() {
 
 # Reload terminal colors
 set_term_config() {
-		sed -i "$HOME"/.config/alacritty/fonts.yml \
-		-e "s/family: .*/family: JetBrainsMono Nerd Font/g" \
-		-e "s/size: .*/size: 10/g"
+		sed -i "$HOME"/.config/alacritty/fonts.toml \
+		-e "s/family = .*/family = \"JetBrainsMono Nerd Font\"/g" \
+		-e "s/size = .*/size = 10/g"
 		
-		cat > "$HOME"/.config/alacritty/colors.yml <<- _EOF_
+		cat > "$HOME"/.config/alacritty/colors.toml <<- _EOF_
 				# Colors (Elenapan) Pamela Rice
-				colors:
-				  primary:
-				    background: '#1D1F28'
-				    foreground: '#FDFDFD'
+				[colors.primary]
+				    background = '#1D1F28'
+				    foreground = '#FDFDFD'
 
-				  normal:
-				    black:   '#3D4C5F'
-				    red:     '#F37F97'
-				    green:   '#5ADECD'
-				    yellow:  '#F2A272'
-				    blue:    '#8897F4'
-				    magenta: '#C574DD'
-				    cyan:    '#79E6F3'
-				    white:   '#FDFDFD'
+				[colors.normal]
+				    black =   '#3D4C5F'
+				    red =     '#F37F97'
+				    green =   '#5ADECD'
+				    yellow =  '#F2A272'
+				    blue =    '#8897F4'
+				    magenta = '#C574DD'
+				    cyan =    '#79E6F3'
+				    white =   '#FDFDFD'
 
-				  bright:
-				    black:   '#56687E'
-				    red:     '#FF4971'
-				    green:   '#18E3C8'
-				    yellow:  '#FF8037'
-				    blue:    '#556FFF'
-				    magenta: '#B043D1'
-				    cyan:    '#3FDCEE'
-				    white:   '#BEBEC1'
+				[colors.bright]
+				    black =   '#56687E'
+				    red =     '#FF4971'
+				    green =   '#18E3C8'
+				    yellow =  '#FF8037'
+				    blue =    '#556FFF'
+				    magenta = '#B043D1'
+				    cyan =    '#3FDCEE'
+				    white =   '#BEBEC1'
     
-				  cursor:
-				    cursor: '#FF4971'
-				    text:	'#1D1F28'
+				[colors.cursor]
+				    cursor = '#FF4971'
+				    text =	'#1D1F28'
 _EOF_
 }
 

@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+#  ╦═╗╦╔═╗╔═╗  ╔═╗╔═╗╦  ╔═╗╔═╗╔╦╗╔═╗╦═╗  - z0mbi3
+#  ╠╦╝║║  ║╣   ╚═╗║╣ ║  ║╣ ║   ║ ║ ║╠╦╝  - https://github.com/gh0stzk/dotfiles
+#  ╩╚═╩╚═╝╚═╝  ╚═╝╚═╝╩═╝╚═╝╚═╝ ╩ ╚═╝╩╚═  - z0mbi3.zk@protonmail.com
+
+rofi_dir="$HOME/.config/rofi"
+rofi_command="rofi -dmenu -theme $HOME/.config/rofi/launchers/type-1/style-11.rasi"
+
+# List rices
+options=()
+for dir in "$rofi_dir"/launchers/*; do
+    options+=("$(basename "$dir")")
+done
+
+# Show the rofi selection menu and store the result in a variable.
+type=$(printf "%s\n" "${options[@]}" | $rofi_command -p rofi)
+
+[[ -n "$type" ]] || exit 1
+
+options=$(ls "$rofi_dir/launchers/$type" | grep ".rasi" | awk -F '.' '{print $1}' | sort)
+
+style=$(printf "%s\n" "${options[@]}" | $rofi_command -p rofi)
+
+[[ -n "$style" ]] || exit 1
+
+echo "$type" > "${rofi_dir}/.type"
+echo "$style" > "${rofi_dir}/.style"
+
+exit 0

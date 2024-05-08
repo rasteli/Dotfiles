@@ -1,0 +1,221 @@
+{
+  "workbench.iconTheme": "symbols",
+  "workbench.colorTheme": "Min Dark",
+  "workbench.productIconTheme": "fluent-icons",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.editor.labelFormat": "short",
+  "workbench.activityBar.location": "hidden",
+  "workbench.statusBar.visible": false,
+
+  // "window.restoreWindows": "none",
+  // "workbench.colorCustomizations": {
+  // "editor.background": "#181818" // Default Dark Modern
+  // },
+
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.compactFolders": false,
+  "explorer.fileNesting.enabled": true,
+
+  "explorer.fileNesting.patterns": {
+    "package.json": ".eslint*, prettier*, tsconfig*, vite*, pnpm-lock*, bun.lockb, nest*",
+    "tailwind.config*": "tailwind.config*, postcss.config*",
+    ".env.local": ".env*",
+    ".env": ".env*"
+  },
+
+  "breadcrumbs.enabled": false,
+
+  "editor.tabSize": 2,
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontWeight": "400",
+  "editor.suggestSelection": "first",
+  "editor.fontSize": 18,
+  "editor.rulers": [80, 120],
+  "editor.formatOnSave": true,
+  "editor.fontLigatures": true,
+  "editor.minimap.enabled": false,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorBlinking": "phase",
+  "editor.cursorStyle": "line",
+  "editor.inlineSuggest.enabled": true,
+  "editor.renderLineHighlight": "gutter",
+  "editor.lineHeight": 1.8,
+  "editor.semanticHighlighting.enabled": false,
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.vertical": "hidden",
+
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontWeight": "bold",
+  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+  "terminal.integrated.defaultProfile.linux": "fish",
+  "terminal.integrated.defaultProfile.windows": "powershell",
+
+  "window.commandCenter": false,
+  "window.titleBarStyle": "native",
+  "window.menuBarVisibility": "toggle",
+
+  "prettier.tabWidth": 2,
+  "prettier.printWidth": 80,
+  "prettier.semi": false,
+  "prettier.arrowParens": "avoid",
+  "prettier.trailingComma": "none",
+  "prettier.bracketSpacing": true,
+  "prettier.singleQuote": false,
+
+  "apc.font.family": "Inter",
+  "apc.listRow": {
+    "height": 24
+  },
+  "apc.stylesheet": {
+    ".title-label > h2": "display: none",
+    ".editor-actions": "display: none",
+    ".nosidebar .inline-tabs-placeholder": "width: 75px",
+    ".pane-header": "padding: 0 8px",
+    ".pane-body": "padding: 8px",
+    ".split-view-view:first-child .pane-header": "display: none !important;",
+    ".monaco-list-row": "border-radius: 4px;",
+    ".monaco-workbench .monaco-list:not(.element-focused):focus:before": "display: none;"
+  },
+
+  "editor.tokenColorCustomizations": {
+    "[Material Theme Palenight High Contrast]": {
+      "textMateRules": [
+        {
+          "scope": [
+            "support.class.component",
+            "entity.name.tag.js",
+            "meta.block",
+            "punctuation.definition.block.js",
+            "keyword.control.import",
+            "keyword.control.from",
+            "punctuation.definition.parameters.begin.js",
+            "punctuation.definition.parameters.end.js"
+          ],
+          "settings": {
+            "foreground": "#a08bfd"
+          }
+        }
+      ]
+    },
+
+    "[Dracula]": {
+      "textMateRules": [
+        {
+          "scope": [
+            "variable.parameter",
+            "entity.other.attribute-name.js",
+            "entity.other.attribute-name",
+            "entity.name.type",
+            "source",
+            "support",
+            "meta.import variable.other.readwrite"
+          ],
+          "settings": {
+            "fontStyle": ""
+          }
+        }
+      ]
+    },
+
+    "[Min Dark]": {
+      "textMateRules": [
+        {
+          "scope": [
+            "variable.parameter",
+            "entity.name.type",
+            "support.type.primitive",
+            "comment"
+          ],
+          "settings": {
+            "fontStyle": "italic"
+          }
+        }
+      ]
+    },
+
+    "[Palenight (Mild Contrast)]": {
+      "textMateRules": [
+        {
+          "scope": [
+            "variable.parameter",
+            "entity.name.type",
+            "support.type.primitive",
+            "comment",
+            "entity.name.function"
+          ],
+          "settings": {
+            "fontStyle": "italic"
+          }
+        }
+      ]
+    }
+  },
+
+  "[prisma]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+
+  "[rust]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+
+  "files.associations": {
+    "*.css": "css"
+  },
+
+  "files.exclude": {
+    "**/node_modules": false
+  },
+
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false,
+    "yaml": true
+  },
+
+  // https://gist.github.com/rupeshtiwari/6860fbc1b3e2f6711c780070d6f59748 -> All icons associations
+  "material-icon-theme.folders.associations": {
+    "migrations": "Tools",
+    "entities": "Docs",
+    "repositories": "Database",
+    "in-memory": "Batch",
+    "infra": "Mjml",
+    "http": "Global",
+    "dtos": "Typescript",
+    "mappers": "Less",
+    "view-models": "Views",
+    "factories": "Functions",
+    "reducers": "Core"
+  },
+
+  // https://www.figma.com/file/HYLMyRbIdSbIJQlqnd9pSN/Symbols---File-Icons?type=design&node-id=20521-84115&t=QjJ8W5q1xtiQGs2M-0
+  "symbols.folders.associations": {
+    "packages": "folder-assets",
+    "tokens": "folder-config",
+    "docs": "folder-gray-code",
+    ".storybook": "folder-red-outline",
+    "stories": "folder-red-code",
+    "lib": "folder-green-code",
+    "pages": "folder-app"
+  },
+
+  "symbols.hidesExplorerArrows": false,
+
+  "git.openRepositoryInParentFolders": "never",
+  "rust-analyzer.inlayHints.chainingHints.enable": false,
+  "rust-analyzer.inlayHints.renderColons": false,
+  "rust-analyzer.inlayHints.typeHints.enable": false,
+  "rust-analyzer.inlayHints.closureStyle": "hide",
+  "rust-analyzer.check.command": "clippy"
+}

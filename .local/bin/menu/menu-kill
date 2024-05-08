@@ -13,12 +13,12 @@ source "$HOME/.local/bin/launcher"
 # Lists all user's processes, pipes them into dmenu or rofi
 # and assigns just the 2nd (PID) and 11th (CMD) columns to
 # the process variable.
-process=$(ps --user "$USER" -F | $LAUNCHER -l 20 -h 22 -p 'Search for process to kill'\
+process=$(ps --user "$USER" -F | $LAUNCHER -l 20 -p 'Search for process to kill'\
           | awk '{print $2" "$11}')
 
 if [ -n "$process" ]; then
   # Request confirmation from the user to kill the process.
-  confirmation=$(printf "Yes\nNo" | $LAUNCHER -h 28 -p "Kill $process?")
+  confirmation=$(printf "Yes\nNo" | $LAUNCHER -p "Kill $process?")
 
   if [ -n "$confirmation" ]; then
     # Exits with errors.

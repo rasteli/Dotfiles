@@ -21,40 +21,39 @@ set_bspwm_config() {
 
 # Reload terminal colors
 set_term_config() {
-		sed -i "$HOME"/.config/alacritty/fonts.yml \
-		-e "s/family: .*/family: JetBrainsMono Nerd Font/g" \
-		-e "s/size: .*/size: 10/g"
+		sed -i "$HOME"/.config/alacritty/fonts.toml \
+		-e "s/family = .*/family = \"JetBrainsMono Nerd Font\"/g" \
+		-e "s/size = .*/size = 10/g"
 
-		cat > "$HOME"/.config/alacritty/colors.yml <<- _EOF_
+		cat > "$HOME"/.config/alacritty/colors.toml <<- _EOF_
 				# Colors (Gruvbox) Silvia Rice
-				colors:
-				  primary:
-				    background: '#282828'
-				    foreground: '#fbf1c7'
+				[colors.primary]
+				    background = '#282828'
+				    foreground = '#fbf1c7'
 
-				  normal:
-				    black:   '#a89984'
-				    red:     '#cc241d'
-				    green:   '#98971a'
-				    yellow:  '#d79921'
-				    blue:    '#458588'
-				    magenta: '#b16286'
-				    cyan:    '#689d6a'
-				    white:   '#ebdbb2'
+				[colors.normal]
+				    black =   '#a89984'
+				    red =     '#cc241d'
+				    green =   '#98971a'
+				    yellow =  '#d79921'
+				    blue =    '#458588'
+				    magenta = '#b16286'
+				    cyan =    '#689d6a'
+				    white =   '#ebdbb2'
 
-				  bright:
-				    black:   '#a89984'
-				    red:     '#fb4934'
-				    green:   '#b8bb26'
-				    yellow:  '#fabd2f'
-				    blue:    '#83a598'
-				    magenta: '#d3869b'
-				    cyan:    '#8ec07c'
-				    white:   '#ebdbb2'
+				[colors.bright]
+				    black =   '#a89984'
+				    red =     '#fb4934'
+				    green =   '#b8bb26'
+				    yellow =  '#fabd2f'
+				    blue =    '#83a598'
+				    magenta = '#d3869b'
+				    cyan =    '#8ec07c'
+				    white =   '#ebdbb2'
 
-				  cursor:
-				    cursor: '#fbf1c7'
-				    text:	'#282828'
+				[colors.cursor]
+				    cursor = '#fbf1c7'
+				    text =	'#282828'
 _EOF_
 }
 

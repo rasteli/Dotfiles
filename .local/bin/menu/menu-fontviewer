@@ -11,7 +11,7 @@
 source "$HOME/.local/bin/launcher"
 
 # Prompts only the font name ignoring its full path.
-font=$(fc-list | awk -F ':' '{print $1}' | grep -v 'dpi' | awk -F '/' '{print $NF}' | $LAUNCHER -l 15 -h 22 -p 'Font viewer')
+font=$(fc-list | awk -F ':' '{print $1}' | grep -v 'dpi' | awk -F '/' '{print $NF}' | $LAUNCHER -l 15 -p 'Font viewer')
 
 if [ ! -z "$font" -a "$font" != " " ]; then
   fontPath=$(fc-list | awk -F ':' '{print $1}' | grep -v 'dpi' | awk -F '/' '{print}' | grep "$font")

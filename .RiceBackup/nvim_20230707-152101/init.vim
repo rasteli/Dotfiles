@@ -1,1 +1,0 @@
-/home/rasteli/.vimrc

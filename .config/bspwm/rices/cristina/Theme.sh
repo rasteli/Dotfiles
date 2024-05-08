@@ -21,40 +21,39 @@ set_bspwm_config() {
 
 # Reload terminal colors
 set_term_config() {
-		sed -i "$HOME"/.config/alacritty/fonts.yml \
-		-e "s/family: .*/family: JetBrainsMono Nerd Font/g" \
-		-e "s/size: .*/size: 10/g"
+		sed -i "$HOME"/.config/alacritty/fonts.toml \
+		-e "s/family = .*/family = \"JetBrainsMono Nerd Font\"/g" \
+		-e "s/size = .*/size = 10/g"
 
-		cat > "$HOME"/.config/alacritty/colors.yml <<- _EOF_
+		cat > "$HOME"/.config/alacritty/colors.toml <<- _EOF_
 				# Colors (Rose-Pine Moon) Cristina Rice
-				colors:
-				  primary:
-				    background: '#1f1d29'
-				    foreground: '#eaeaea'
+				[colors.primary]
+				    background =  '#1f1d29'
+				    foreground =  '#eaeaea'
 
-				  normal:
-				    black:   '#6f6e85'
-				    red:     '#ea6f91'
-				    green:   '#9bced7'
-				    yellow:  '#f1ca93'
-				    blue:    '#34738e'
-				    magenta: '#c3a5e6'
-				    cyan:    '#eabbb9'
-				    white:   '#faebd7'
+				[colors.normal]
+				    black =    '#6f6e85'
+				    red =      '#ea6f91'
+				    green =    '#9bced7'
+				    yellow =   '#f1ca93'
+				    blue =     '#34738e'
+				    magenta =  '#c3a5e6'
+				    cyan =     '#eabbb9'
+				    white =    '#faebd7'
 
-				  bright:
-				    black:   '#6f6e85'
-				    red:     '#ea6f91'
-				    green:   '#9bced7'
-				    yellow:  '#f1ca93'
-				    blue:    '#34738e'
-				    magenta: '#c3a5e6'
-				    cyan:    '#ebbcba'
-				    white:   '#e0def4'
+				[colors.bright]
+				    black =    '#6f6e85'
+				    red =      '#ea6f91'
+				    green =    '#9bced7'
+				    yellow =   '#f1ca93'
+				    blue =     '#34738e'
+				    magenta =  '#c3a5e6'
+				    cyan =     '#ebbcba'
+				    white =    '#e0def4'
 
-				  cursor:
-				    cursor: '#c3a5e6'
-				    text:	'#1f1d29'
+				[colors.cursor]
+				    cursor =  '#c3a5e6'
+				    text = 	'#1f1d29'
 _EOF_
 }
 

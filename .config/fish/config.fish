@@ -111,7 +111,7 @@ alias svim="sudo -E nvim"
 alias ls='lsd -A --group-directories-first'
 alias ll='lsd -lA --group-directories-first'
 alias rr="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
-alias macos="docker start catalina"
+#alias macos="docker start catalina"
 
 ### Network
 alias ckport="sudo ss -tulpn"

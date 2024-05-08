@@ -21,40 +21,39 @@ set_bspwm_config() {
 
 # Reload terminal colors
 set_term_config() {
-		sed -i "$HOME"/.config/alacritty/fonts.yml \
-		-e "s/family: .*/family: JetBrainsMono Nerd Font/g" \
-		-e "s/size: .*/size: 10/g"
+		sed -i "$HOME"/.config/alacritty/fonts.toml \
+		-e "s/family = .*/family = \"JetBrainsMono Nerd Font\"/g" \
+		-e "s/size = .*/size = 10/g"
 
-		cat > "$HOME"/.config/alacritty/colors.yml <<- _EOF_
+		cat > "$HOME"/.config/alacritty/colors.toml <<- _EOF_
 				# Colors (Zombie-Night color scheme) Karla Rice
-				colors:
-				  primary:
-				    background: '#0E1113'
-				    foreground: '#afb1db'
+				[colors.primary]
+				    background = '#0E1113'
+				    foreground = '#afb1db'
 
-				  normal:
-				    black:   '#2d2b36'
-				    red:     '#e7034a'
-				    green:   '#61b33e'
-				    yellow:  '#ffb964'
-				    blue:    '#5884d4'
-				    magenta: '#7a44e3'
-				    cyan:    '#7df0f0'
-				    white:   '#faf7ff'
+				[colors.normal]
+				    black =   '#2d2b36'
+				    red =     '#e7034a'
+				    green =   '#61b33e'
+				    yellow =  '#ffb964'
+				    blue =    '#5884d4'
+				    magenta = '#7a44e3'
+				    cyan =    '#7df0f0'
+				    white =   '#faf7ff'
 
-				  bright:
-				    black:   '#373542'
-				    red:     '#e71c5b'
-				    green:   '#6fb352'
-				    yellow:  '#ffb964'
-				    blue:    '#5f90ea'
-				    magenta: '#8656e3'
-				    cyan:    '#97f0f0'
-				    white:   '#fdfcff'
+				[colors.bright]
+				    black =   '#373542'
+				    red =     '#e71c5b'
+				    green =   '#6fb352'
+				    yellow =  '#ffb964'
+				    blue =    '#5f90ea'
+				    magenta = '#8656e3'
+				    cyan =    '#97f0f0'
+				    white =   '#fdfcff'
 
-				  cursor:
-				     cursor: '#8656e3'
-				     text:	'#0b0b12'
+				[colors.cursor]
+				     cursor = '#8656e3'
+				     text =	'#0b0b12'
 _EOF_
 }
 

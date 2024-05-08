@@ -26,40 +26,39 @@ fi
 
 # Reload terminal colors
 set_term_config() {
-		sed -i "$HOME"/.config/alacritty/fonts.yml \
-		-e "s/family: .*/family: JetBrainsMono Nerd Font/g" \
-		-e "s/size: .*/size: 10/g"
+		sed -i "$HOME"/.config/alacritty/fonts.toml \
+		-e "s/family = .*/family = \"JetBrainsMono Nerd Font\"/g" \
+		-e "s/size = .*/size = 10/g"
 
-		cat > "$HOME"/.config/alacritty/colors.yml <<- _EOF_
+		cat > "$HOME"/.config/alacritty/colors.toml <<- _EOF_
 				# Colors (Decay, decayce variant) z0mbi3 Rice
-				colors:
-				  primary:
-				    background: '#0d0f18'
-				    foreground: '#a5b6cf'
+				[colors.primary]
+				    background = '#0d0f18'
+				    foreground = '#a5b6cf'
 
-				  normal:
-				    black:   '#3d414f'
-				    red:     '#dd6777'
-				    green:   '#90ceaa'
-				    yellow:  '#ecd3a0'
-				    blue:    '#86aaec'
-				    magenta: '#c296eb'
-				    cyan:    '#93cee9'
-				    white:   '#cbced3'
+				[colors.normal]
+				    black =   '#3d414f'
+				    red =     '#dd6777'
+				    green =   '#90ceaa'
+				    yellow =  '#ecd3a0'
+				    blue =    '#86aaec'
+				    magenta = '#c296eb'
+				    cyan =    '#93cee9'
+				    white =   '#cbced3'
 
-				  bright:
-				    black:   '#3d414f'
-				    red:     '#dd6777'
-				    green:   '#90ceaa'
-				    yellow:  '#ecd3a0'
-				    blue:    '#86aaec'
-				    magenta: '#c296eb'
-				    cyan:    '#93cee9'
-				    white:   '#cbced3'
+				[colors.bright]
+				    black =   '#3d414f'
+				    red =     '#dd6777'
+				    green =   '#90ceaa'
+				    yellow =  '#ecd3a0'
+				    blue =    '#86aaec'
+				    magenta = '#c296eb'
+				    cyan =    '#93cee9'
+				    white =   '#cbced3'
 
-				  cursor:
-				    cursor: '#a5b6cf'
-				    text:	'#0d0f18'
+				[colors.cursor]
+				    cursor = '#a5b6cf'
+				    text =	'#0d0f18'
 _EOF_
 }
 
@@ -104,10 +103,14 @@ _EOF_
 # Launch the bar and or eww widgets
 launch_bars() {
 		eww -c ${rice_dir}/bar open bar &
-		#eww -c ${rice_dir}/bar open bar-sec &
 		eww -c ${rice_dir}/dashboard daemon &
+
+		#eww -c ${rice_dir}/bar open bar-sec &
 		#polybar -q tray -c ${rice_dir}/bar/polybar_tray.ini &
+		
 		polybar -q isa-bar -c $HOME/.config/bspwm/rices/isabel/sec-config.ini &
+		#polybar -q karla-bar2 -c $HOME/.config/bspwm/rices/karla/sec-config.ini &
+		#polybar -q karla-bar3 -c $HOME/.config/bspwm/rices/karla/sec-config.ini &
 }
 
 

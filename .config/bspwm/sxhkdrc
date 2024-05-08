@@ -11,6 +11,10 @@ alt + F1
 alt + F2
   rofi -show calc -modi calc -no-show-match -no-sort
 
+# Emoji Menu
+alt + F3
+	OpenApps --scripts
+
 # Open Terminal (alacritty)
 super + Return
 	OpenApps --terminal
@@ -22,10 +26,6 @@ super + control + Return
 # Applications Menu
 super + shift + Return
 	OpenApps --menu
-
-# Emoji Menu
-alt + F3
-	OpenApps --scripts
 
 # Rofi Selector
 super + alt + @space
@@ -45,7 +45,7 @@ super + alt + w
 
 # Scratchpad
 super + alt + o
-	tdrop -a -w 1500 -h 35% -y 15% -x 30  --class scratch alacritty --class=scratch
+	tdrop -a -w 800 -h 40% -y 15% -x 2160  --class scratch alacritty --class=scratch
 
 ## WM INDEPENDENT HOTKEYS
 
@@ -119,10 +119,10 @@ super + {grave,Tab}
   bspc {node,desktop} -f last
 
 ## focus the older or newer node in the focus history
-super + {o,i}
-  bspc wm -h off; \
-  bspc node {older,newer} -f; \
-  bspc wm -h on
+#super + {o,i}
+  #bspc wm -h off; \
+  #bspc node {older,newer} -f; \
+  #bspc wm -h on
 
 ## focus or send to the given desktop
 super + {_,shift + }{1-9,0}
@@ -174,9 +174,9 @@ super + alt + f
 ## Open File Manager
 super + shift + f
 	OpenApps --filemanager
-## Open htop
+## Open btop
 super + alt + t
-  alacritty -e htop
+  alacritty -e btop
 ## Open ncdu
 super + alt + n
   alacritty -e sudo ncdu / --ignore-config
@@ -210,7 +210,8 @@ Print
 ###====== MENU SCRIPTS (super + p)
 ## power menu
 super + End
-  ~/.config/rofi/powermenu/type-2/powermenu.sh
+  archlinux-logout
+  #~/.config/rofi/powermenu/type-2/powermenu.sh
 
 ## play ambient sounds - edit bin files - edit config files
 super + p; {a,b,c}
@@ -224,7 +225,7 @@ super + p; {d,f,g,h}
 
 ## miscellaneous actions - search and kill process - mount/unmount mtp connected devices
 super + p; {i,k,m}
-   {~/.local/bin/menu/menu-misc -l dmenu,~/.config/rofi/scripts/kill.sh -l dmenu,~/.local/bin/menu/menu-mtp -l dmenu}
+   {~/.local/bin/menu/menu-misc -l dmenu,~/.local/bin/menu/menu-kill -l dmenu,~/.local/bin/menu/menu-mtp -l dmenu}
 
 ## open browser bookmarks
 super + p; {o}

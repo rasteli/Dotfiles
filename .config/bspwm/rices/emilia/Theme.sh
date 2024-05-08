@@ -21,40 +21,39 @@ set_bspwm_config() {
 
 # Reload terminal colors
 set_term_config() {
-		sed -i "$HOME"/.config/alacritty/fonts.yml \
-		-e "s/family: .*/family: JetBrainsMono Nerd Font/g" \
-		-e "s/size: .*/size: 10/g"
+		sed -i "$HOME"/.config/alacritty/fonts.toml \
+		-e "s/family = .*/family = \"JetBrainsMono Nerd Font\"/g" \
+		-e "s/size = .*/size = 10/g"
 
-		cat > "$HOME"/.config/alacritty/colors.yml <<- _EOF_
+		cat > "$HOME"/.config/alacritty/colors.toml <<- _EOF_
 				# Colors (Tokyo Night) Emilia Rice
-				colors:
-				  primary:
-				    background: '#1a1b26'
-				    foreground: '#c0caf5'
+				[colors.primary]
+				    background =  '#1a1b26'
+				    foreground =  '#c0caf5'
 
-				  normal:
-				    black:   '#414868'
-				    red:     '#f7768e'
-				    green:   '#9ece6a'
-				    yellow:  '#e0af68'
-				    blue:    '#7aa2f7'
-				    magenta: '#bb9af7'
-				    cyan:    '#7dcfff'
-				    white:   '#787c99'
+				[colors.normal]
+				    black =    '#414868'
+				    red =      '#f7768e'
+				    green =    '#9ece6a'
+				    yellow =   '#e0af68'
+				    blue =     '#7aa2f7'
+				    magenta =  '#bb9af7'
+				    cyan =     '#7dcfff'
+				    white =    '#787c99'
 
-				  bright:
-				    black:   '#414868'
-				    red:     '#f7768e'
-				    green:   '#9ece6a'
-				    yellow:  '#e0af68'
-				    blue:    '#7aa2f7'
-				    magenta: '#bb9af7'
-				    cyan:    '#7dcfff'
-				    white:   '#c0caf5'
+				[colors.bright]
+				    black =    '#414868'
+				    red =      '#f7768e'
+				    green =    '#9ece6a'
+				    yellow =   '#e0af68'
+				    blue =     '#7aa2f7'
+				    magenta =  '#bb9af7'
+				    cyan =     '#7dcfff'
+				    white =    '#c0caf5'
 
-				  cursor:
-				    cursor: '#bb9af7'
-				    text:	'#1a1b26'
+				[colors.cursor]
+				    cursor =  '#bb9af7'
+				    text = 	'#1a1b26'
 _EOF_
 }
 
