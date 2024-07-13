@@ -41,7 +41,7 @@ super + control + alt + {h,u}
 
 # Random wallpaper
 super + alt + w
-	feh -z --no-fehbg --bg-fill ~/.config/bspwm/rices/$RICETHEME/walls/
+	feh -z --no-fehbg --bg-fill ~/.local/share/backgrounds
 
 # Scratchpad
 super + alt + o

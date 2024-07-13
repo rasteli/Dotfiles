@@ -6,8 +6,8 @@ rice_dir="$HOME/.config/bspwm/rices/$RICETHEME"
 
 case "$1" in
   --random)
-    feh -z --no-fehbg --bg-fill ${rice_dir}/walls;;
-    # feh -z --no-fehbg --bg-fill $HOME/.local/share/backgrounds;;
+    feh -z --no-fehbg --bg-fill $HOME/.local/share/backgrounds;;
+    # feh -z --no-fehbg --bg-fill ${rice_dir}/walls;;
   --restore)
     $HOME/.fehbg;;
   *)

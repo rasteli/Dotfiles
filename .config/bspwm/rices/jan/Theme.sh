@@ -8,7 +8,7 @@
 # Set bspwm configuration for Jan
 set_bspwm_config() {
 		bspc config border_width 0
-		bspc config top_padding 64
+		bspc config top_padding 49
 		bspc config bottom_padding 2
 		bspc config normal_border_color "#4C3A6D"
 		bspc config active_border_color "#4C3A6D"

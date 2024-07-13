@@ -8,7 +8,7 @@
 # Set bspwm configuration for Pamela
 set_bspwm_config() {
 		bspc config border_width 0
-		bspc config top_padding 59
+		bspc config top_padding 49
 		bspc config bottom_padding 2
 		bspc config normal_border_color "#C574DD"
 		bspc config active_border_color "#C574DD"
@@ -98,12 +98,20 @@ _EOF_
 # Launch the bar
 launch_bars() {
 		eww -c ${rice_dir}/widgets daemon &
+		# HDMI-0
 		polybar -q pam1 -c ${rice_dir}/config.ini &
 		polybar -q pam2 -c ${rice_dir}/config.ini &
 		polybar -q pam3 -c ${rice_dir}/config.ini &
 		polybar -q pam4 -c ${rice_dir}/config.ini &
 		polybar -q pam5 -c ${rice_dir}/config.ini &
 		polybar -q pam6 -c ${rice_dir}/config.ini &
+		# DP-1
+		polybar -q pam1 -c ${rice_dir}/sec-config.ini &
+		polybar -q pam2 -c ${rice_dir}/sec-config.ini &
+		polybar -q pam3 -c ${rice_dir}/sec-config.ini &
+		polybar -q pam4 -c ${rice_dir}/sec-config.ini &
+		polybar -q pam5 -c ${rice_dir}/sec-config.ini &
+		polybar -q pam6 -c ${rice_dir}/sec-config.ini &
 }
 
 
