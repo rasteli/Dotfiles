@@ -41,7 +41,8 @@ super + control + alt + {h,u}
 
 # Random wallpaper
 super + alt + w
-	feh -z --no-fehbg --bg-fill ~/.local/share/backgrounds
+	feh -z --no-fehbg --bg-fill ~/.config/bspwm/rices/$RICETHEME/walls
+	# feh -z --no-fehbg --bg-fill ~/.local/share/backgrounds
 
 # Scratchpad
 super + alt + o
@@ -165,9 +166,9 @@ super + {Left,Down,Up,Right}
 
 
 ###====== USEFUL PROGRAMS (alt)
-## Open browser
+## Open most used app selector
 super + b
-  OpenApps --browser
+  OpenApps --mostused
 ## Open Ranger
 super + alt + f
   alacritty -e ranger
@@ -209,7 +210,7 @@ Print
 
 ###====== MENU SCRIPTS (super + p)
 ## power menu
-super + End
+super + q
   archlinux-logout
   #~/.config/rofi/powermenu/type-2/powermenu.sh
 

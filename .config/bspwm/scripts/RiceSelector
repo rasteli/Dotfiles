@@ -4,7 +4,7 @@
 #  ╩╚═╩╚═╝╚═╝  ╚═╝╚═╝╩═╝╚═╝╚═╝ ╩ ╚═╝╩╚═  - z0mbi3.zk@protonmail.com
 
 bspwm_dir="$HOME/.config/bspwm"
-rofi_command="rofi -dmenu -theme $HOME/.config/rofi/launchers/type-1/style-11.rasi"
+rofi_command="rofi -dmenu -theme $HOME/.config/rofi/launchers/type-4/style-5.rasi"
 
 # List rices
 options=()

@@ -20,7 +20,7 @@ case "$1" in
 		 # -theme $HOME/.config/bspwm/rices/${RICETHEME}/scripts.rasi;;
 
   --rofisel)
-    $HOME/.config/rofi/scripts/type-selector;;
+    $HOME/.config/rofi/scripts/user/type-selector;;
 
   --rice)
 	RiceSelector;;
@@ -96,6 +96,9 @@ case "$1" in
 
   --browser)
 	brave-browser-nightly;;
+
+  --mostused)
+    $HOME/.config/rofi/scripts/user/most-used;;
 
   --editor)
 	code;;

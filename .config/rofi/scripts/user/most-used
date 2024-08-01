@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+#  ╦═╗╦╔═╗╔═╗  ╔═╗╔═╗╦  ╔═╗╔═╗╔╦╗╔═╗╦═╗  - z0mbi3
+#  ╠╦╝║║  ║╣   ╚═╗║╣ ║  ║╣ ║   ║ ║ ║╠╦╝  - https://github.com/gh0stzk/dotfiles
+#  ╩╚═╩╚═╝╚═╝  ╚═╝╚═╝╩═╝╚═╝╚═╝ ╩ ╚═╝╩╚═  - z0mbi3.zk@protonmail.com
+
+rofi_dir="$HOME/.config/rofi"
+rofi_command="rofi -dmenu -theme $HOME/.config/rofi/launchers/type-4/style-5.rasi"
+
+# List rices
+declare -A options
+
+options[Brave]="brave-browser-nightly"
+options[Firefox]="firefox"
+options["Google Calendar"]="firefox https://calendar.google.com/calendar/u/0/r"
+
+# Show the rofi selection menu and store the result in a variable.
+key=$(printf "%s\n" "${!options[@]}" | sort | $rofi_command -p rofi)
+
+[[ -n "$key" ]] || exit 1
+
+command="${options["$key"]}"
+
+exec $command
+
+exit 0

@@ -98,14 +98,14 @@ _EOF_
 # Launch the bar
 launch_bars() {
 		eww -c ${rice_dir}/widgets daemon &
-		# HDMI-0
+		# DP-0
 		polybar -q pam1 -c ${rice_dir}/config.ini &
 		polybar -q pam2 -c ${rice_dir}/config.ini &
 		polybar -q pam3 -c ${rice_dir}/config.ini &
 		polybar -q pam4 -c ${rice_dir}/config.ini &
 		polybar -q pam5 -c ${rice_dir}/config.ini &
 		polybar -q pam6 -c ${rice_dir}/config.ini &
-		# DP-1
+		# HDMI-0
 		polybar -q pam1 -c ${rice_dir}/sec-config.ini &
 		polybar -q pam2 -c ${rice_dir}/sec-config.ini &
 		polybar -q pam3 -c ${rice_dir}/sec-config.ini &

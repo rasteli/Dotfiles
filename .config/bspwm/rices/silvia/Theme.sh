@@ -8,7 +8,7 @@
 # Set bspwm configuration for Silvia
 set_bspwm_config() {
 		bspc config border_width 0
-		bspc config top_padding 52
+		bspc config top_padding 47
 		bspc config bottom_padding 2
 		bspc config normal_border_color "#d3869b"
 		bspc config active_border_color "#d3869b"

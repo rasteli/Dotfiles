@@ -1,10 +1,8 @@
 {
   "workbench.iconTheme": "symbols",
-  "workbench.colorTheme": "Min Dark",
   "workbench.productIconTheme": "fluent-icons",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.editor.labelFormat": "short",
-  "workbench.activityBar.location": "hidden",
   "workbench.statusBar.visible": true,
 
   // "window.restoreWindows": "none",
@@ -44,7 +42,7 @@
   "editor.lineHeight": 1.8,
   "editor.semanticHighlighting.enabled": false,
   "editor.scrollbar.horizontal": "hidden",
-  "editor.scrollbar.vertical": "hidden",
+  "editor.stickyScroll.enabled": false,
 
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
@@ -60,16 +58,18 @@
   "window.titleBarStyle": "native",
   "window.menuBarVisibility": "toggle",
 
-  "prettier.enable": false,
+  "prettier.enable": true,
+  "prettier.documentSelectors": ["html"],
   "prettier.tabWidth": 2,
   "prettier.printWidth": 80,
   "prettier.semi": true,
   "prettier.arrowParens": "avoid",
   "prettier.trailingComma": "none",
   "prettier.bracketSpacing": true,
-  "prettier.singleQuote": false,
+  "prettier.singleQuote": true,
 
-  "apc.font.family": "Inter",
+  "apc.font.family": "JetBrainsMono Nerd Font",
+
   "apc.listRow": {
     "lists": ["results"],
     "height": 28,
@@ -80,13 +80,24 @@
     }
   },
 
+  "apc.activityBar": {
+    "position": "bottom",
+    "size": 24
+  },
+
+  "apc.statusBar": {
+    "position": "editor-bottom",
+    "height": 24,
+    "fontSize": 12
+  },
+
   "apc.stylesheet": {
     ".title-label > h2": "display: none",
     ".editor-actions": "display: none",
     ".label-name": "font-weight: 500",
     ".nosidebar .inline-tabs-placeholder": "width: 75px",
     ".pane-header": "padding: 0 8px",
-    ".pane-body": "padding: 8px",
+    ".pane-body": "padding: 8px 0",
     ".split-view-view:first-child .pane-header": "display: none !important;",
     ".monaco-list-row": "border-radius: 4px;",
     ".monaco-workbench .monaco-list:not(.element-focused):focus:before": "display: none;"
@@ -185,7 +196,7 @@
   },
 
   "github.copilot.enable": {
-    "*": false,
+    "*": true,
     "plaintext": false,
     "markdown": true,
     "scminput": false,
@@ -228,10 +239,12 @@
   "rust-analyzer.inlayHints.closureStyle": "hide",
   "rust-analyzer.check.command": "clippy",
   "prisma.showPrismaDataPlatformNotification": false,
-  "editor.minimap.enabled": false,
   "sonarlint.rules": {
     "docker:S6596": {
       "level": "off"
     }
-  }
+  },
+  "editor.minimap.enabled": false,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "workbench.colorTheme": "Min Dark"
 }

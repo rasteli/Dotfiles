@@ -16,8 +16,8 @@ set_bspwm_config() {
 		bspc config presel_feedback_color "#90ceaa"
 		bspc config right_padding 2
 		bspc config window_gap 6
-    bspc config -m DP-1 left_padding 2
-    bspc config -m HDMI-0 left_padding 75
+    bspc config -m HDMI-0 left_padding 2
+    bspc config -m DP-0 left_padding 75
 }
 
 if pidof -q bspc; then
